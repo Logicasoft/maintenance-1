@@ -97,7 +97,7 @@ class MaintenanceEquipment(models.Model):
         )
         if furthest_maintenance_todo:
             next_maintenance_date = fields.Date.from_string(
-                furthest_maintenance_todo.request_date
+                furthest_maintenance_todo.schedule_date
             ) + get_relativedelta(
                 maintenance_plan.interval, maintenance_plan.interval_step
             )
