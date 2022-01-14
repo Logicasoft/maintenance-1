@@ -62,7 +62,6 @@ class MaintenancePlan(models.Model):
     )
     maintenance_plan_horizon = fields.Integer(
         string="Planning Horizon period",
-        default=1,
         help="Maintenance planning horizon. Only the maintenance requests "
         "inside the horizon will be created.",
     )
@@ -134,7 +133,9 @@ class MaintenancePlan(models.Model):
             )
 
             if next_maintenance_todo:
-                plan.next_maintenance_date = next_maintenance_todo.schedule_date
+                base_maintenance_date = next_maintenance_todo.get_base_maintenance_date()
+
+                plan.next_maintenance_date = base_maintenance_date
             else:
                 last_maintenance_done = self.env["maintenance.request"].search(
                     [
@@ -145,8 +146,9 @@ class MaintenancePlan(models.Model):
                     limit=1,
                 )
                 if last_maintenance_done:
+                    base_maintenance_date_done = last_maintenance_done.get_base_maintenance_date()
                     plan.next_maintenance_date = (
-                        last_maintenance_done.schedule_date + interval_timedelta
+                        base_maintenance_date_done + interval_timedelta
                     )
                 else:
                     next_date = plan.start_maintenance_date
