@@ -35,6 +35,6 @@ class MaintenanceRequest(models.Model):
         Returns the date used to compute the next maintenance planned
         """
         self.ensure_one()
-        base_date = self.env['ir.config_parameter'].sudo().get_param('maintenance.plan.base.date')
+        base_date = self.env['ir.config_parameter'].sudo().get_param('maintenance.plan.base.date', 'done_date')
         request_date = self.read([base_date])
         return request_date[0].get(base_date) or fields.Date.today()
