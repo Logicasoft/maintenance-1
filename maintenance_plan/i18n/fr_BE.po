@@ -453,7 +453,7 @@ msgid ""
 "You have multiple preventive maintenance requests on equipment %s next "
 "action date (%s). Please leave only one preventive request on the date of "
 "equipment's next action to install the module."
-msgstr ""-
+msgstr ""
 
 #. module: maintenance_plan
 #: model_terms:ir.ui.view,arch_db:maintenance_plan.maintenance_plan_view_form
