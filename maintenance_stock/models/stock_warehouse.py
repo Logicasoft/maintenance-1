@@ -66,7 +66,7 @@ class StockWarehouse(models.Model):
 
     def _get_locations_values(self, vals, code=False):
         sub_locations = super()._get_locations_values(vals, code)
-        code = code or self.code
+        code = code or self.code or ""
         code = code.replace(" ", "").upper()
         company_id = vals.get("company_id", self.company_id.id)
         return {
