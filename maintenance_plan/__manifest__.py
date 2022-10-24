@@ -21,5 +21,5 @@
     "external_dependencies": {"python": ["dateutil"]},
     "demo": ["data/demo_maintenance_plan.xml"],
     "post_init_hook": "post_init_hook",
-    "installable": True,
+    "installable": False,
 }

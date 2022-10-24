@@ -14,5 +14,5 @@
         "views/maintenance_plan_views.xml",
     ],
     "demo": ["data/demo_maintenance_project_plan.xml"],
-    "installable": True,
+    "installable": False,
 }
