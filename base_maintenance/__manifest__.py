@@ -3,7 +3,7 @@
 
 {
     "name": "Base Maintenance",
-    "version": "15.0.1.1.0",
+    "version": "14.0.1.1.0",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "development_status": "Beta",
     "website": "https://github.com/OCA/maintenance",
@@ -16,5 +16,5 @@
         "views/maintenance_equipment_views.xml",
         "views/report_maintenance_request.xml",
     ],
-    "installable": True,
+    "installable": False,
 }
