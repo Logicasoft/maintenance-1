@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 09:56+0000\n"
-"PO-Revision-Date: 2022-01-14 09:56+0000\n"
+"POT-Creation-Date: 2024-01-10 07:35+0000\n"
+"PO-Revision-Date: 2024-01-10 07:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -208,7 +208,6 @@ msgid "Maintenance Plan"
 msgstr "Planification de maintenance"
 
 #. module: maintenance_plan
-#: model:ir.model.fields,field_description:maintenance_plan.field_lims_config_settings__maintenance_plan_base_date
 #: model:ir.model.fields,field_description:maintenance_plan.field_res_config_settings__maintenance_plan_base_date
 msgid "Maintenance Plan Base Date"
 msgstr "Date utilisée pour la planification de maintenance"
@@ -279,7 +278,8 @@ msgid ""
 "Maintenance planning horizon. Only the maintenance requests inside the "
 "horizon will be created."
 msgstr ""
-"Horizon de maintenance. Seules les demandes de maintenance à l'intérieur de cet horizon seront créées "
+"Horizon de maintenance. Seules les demandes de maintenance à l'intérieur de "
+"cet horizon seront créées "
 
 #. module: maintenance_plan
 #: model:ir.actions.act_window,name:maintenance_plan.maintenance_plan_action
@@ -290,11 +290,19 @@ msgstr "Planifications de maintenance"
 #. module: maintenance_plan
 #: model_terms:ir.ui.view,arch_db:maintenance_plan.res_config_settings_maintenance_form
 msgid ""
-"Maintenance request date used to determine the next maintenance date when a "
-"maintenance plan is configured"
+"Maintenance request date used to determine the next maintenance date when a maintenance plan is configured\n"
+"                                    <br/>\n"
+"                                    <em>\n"
+"                                        Note that 'Done date' configuration is not compatible with the configuration of planning horizons on\n"
+"                                        maintenance plans\n"
+"                                    </em>"
 msgstr ""
 "Date de la demande de maintenance qui sera utilisée pour déterminer la date de la prochaine maintenance "
 "sur les planifications de maintenance"
+"                                    <br/>\n"
+"                                    <em>\n"
+"La configuration 'Date de fin' n'est pas compatible avec la configuration des horizons dans les planifications de maintenance\n"
+"                                    </em>"
 
 #. module: maintenance_plan
 #: model:ir.model.fields,field_description:maintenance_plan.field_maintenance_plan__maintenance_ids
@@ -362,13 +370,11 @@ msgid "Recurrence"
 msgstr "Récurrence"
 
 #. module: maintenance_plan
-#: model:ir.model.fields.selection,name:maintenance_plan.selection__lims_config_settings__maintenance_plan_base_date__request_date
 #: model:ir.model.fields.selection,name:maintenance_plan.selection__res_config_settings__maintenance_plan_base_date__request_date
 msgid "Request Date"
 msgstr "Date demandée"
 
 #. module: maintenance_plan
-#: model:ir.model.fields.selection,name:maintenance_plan.selection__lims_config_settings__maintenance_plan_base_date__schedule_date
 #: model:ir.model.fields.selection,name:maintenance_plan.selection__res_config_settings__maintenance_plan_base_date__schedule_date
 msgid "Scheduled Date"
 msgstr "Date prévue"
