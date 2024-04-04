@@ -88,11 +88,12 @@ class MaintenanceEquipment(models.Model):
         horizon_date = fields.Date.from_string(fields.Date.today()) + get_relativedelta(
             maintenance_plan.maintenance_plan_horizon, maintenance_plan.planning_step
         )
+        base_date = self.env['ir.config_parameter'].sudo().get_param('maintenance.plan.base.date', 'done_date')
         # We check maintenance request already created and create until
         # planning horizon is met
         furthest_maintenance_todo = self.env["maintenance.request"].search(
-            [("maintenance_plan_id", "=", maintenance_plan.id)],
-            order="request_date desc",
+            [("maintenance_plan_id", "=", maintenance_plan.id), ("{}".format(base_date), '!=', False)],
+            order="{} desc".format(base_date),
             limit=1,
         )
         if furthest_maintenance_todo:

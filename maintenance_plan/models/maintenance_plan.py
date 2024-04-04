@@ -117,6 +117,7 @@ class MaintenancePlan(models.Model):
         "maintenance_ids.close_date",
     )
     def _compute_next_maintenance(self):
+        base_date = self.env['ir.config_parameter'].sudo().get_param('maintenance.plan.base.date', 'done_date')
         for plan in self.filtered(lambda x: x.interval > 0):
 
             interval_timedelta = get_relativedelta(plan.interval, plan.interval_step)
@@ -141,8 +142,9 @@ class MaintenancePlan(models.Model):
                     [
                         ("maintenance_plan_id", "=", plan.id),
                         ("request_date", ">=", plan.start_maintenance_date),
+                        ("{}".format(base_date), '!=', False)
                     ],
-                    order="request_date desc",
+                    order="{} desc".format(base_date),
                     limit=1,
                 )
                 if last_maintenance_done:
